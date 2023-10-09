@@ -51,7 +51,7 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 #
 # ------------------------------- Other ends -------------------------------
 git clone https://github.com/QiuSimons/luci-app-daed package/dae
-(cat << EOF
+cat >> package/kernel/linux/modules/netsupport.mk << EOF
 define KernelPackage/xdp-sockets-diag
   SUBMENU:=$(NETWORK_SUPPORT_MENU)
   TITLE:=PF_XDP sockets monitoring interface support for ss utility
@@ -68,4 +68,3 @@ endef
 
 $(eval $(call KernelPackage,xdp-sockets-diag))
 EOF
-) >>package/kernel/linux/modules/netsupport.mk
